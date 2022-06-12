@@ -1,1 +1,48 @@
-<p>level1 works!</p>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Montant désiré</mat-label>
+    <input
+      matInput
+      placeholder="60"
+      type="number"
+      [formControl]="amountControl"
+    />
+  </mat-form-field>
+  <button
+    mat-flat-button
+    color="primary"
+    type="button"
+    [disabled]="!amountControl.valid"
+    (click)="validate()"
+  >
+    VALIDER
+  </button>
+  <div *ngIf="otherSolutions$ | async as otherSolutions">
+    Other choices:
+    <div>
+      <button
+        mat-flat-button
+        color="accent"
+        type="button"
+        *ngIf="otherSolutions.floor as solution"
+        (click)="chooseSolution(solution)"
+      >
+        {{ solution.value }} €
+      </button>
+
+      <button
+        mat-flat-button
+        color="accent"
+        type="button"
+        *ngIf="otherSolutions.ceil as solution"
+        (click)="chooseSolution(solution)"
+      >
+        {{ solution.value }} €
+      </button>
+    </div>
+  </div>
+  <div *ngIf="foundSolution$ | async as solution">
+    Votre montant est composé des cartes suivantes:
+    <span *ngFor="let card of solution.cards">- {{ card }} €</span>
+  </div>
+</div>

@@ -1,7 +1,7 @@
-import { Card } from './card';
+import { Solution } from './solution';
 
 export interface Combination {
-  equal?: Card;
-  floor?: Card;
-  ceil?: Card;
+  equal?: Solution;
+  floor?: Solution;
+  ceil?: Solution;
 }
