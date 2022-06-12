@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  calculatorServerUrl: 'http://localhost:3000',
 };
 
 /*
