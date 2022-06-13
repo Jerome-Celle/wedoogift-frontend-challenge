@@ -1,0 +1,33 @@
+.level1{
+  width: 200px;
+  display: grid;
+  gap: 20px;
+
+  &__control{
+
+    display: grid;
+    gap: 5px;
+
+    &__input{
+      width: 100%;
+    }
+  }
+
+  &__other-solutions{
+    display: grid;
+    gap: 10px;
+
+    &__choices{
+      display: grid;
+      grid-auto-flow: column;
+      gap: 10px;
+    }
+
+  }
+
+  &__solution{
+    display: grid;
+    gap: 5px;
+
+  }
+}
