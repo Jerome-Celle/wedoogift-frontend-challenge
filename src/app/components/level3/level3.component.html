@@ -1,0 +1,76 @@
+<div class="level3">
+  <h1>Level 3</h1>
+  <div class="level3__control">
+    <button
+      mat-flat-button
+      color="accent"
+      type="button"
+      [disabled]="disabled"
+      (click)="previousAmount()"
+    >
+      Montant précédent
+    </button>
+    <mat-form-field appearance="fill" class="level3__control__input">
+      <mat-label>Montant désiré</mat-label>
+      <input
+        matInput
+        placeholder="60"
+        type="number"
+        [formControl]="amountControl"
+      />
+    </mat-form-field>
+    <button
+      mat-flat-button
+      color="accent"
+      type="button"
+      (click)="nextAmount()"
+      [disabled]="disabled"
+    >
+      Montant suivant
+    </button>
+
+    <button
+      mat-flat-button
+      color="primary"
+      type="button"
+      [disabled]="!amountControl.valid || disabled"
+      (click)="validate()"
+      class="level3__control__validate"
+    >
+      VALIDER
+    </button>
+  </div>
+  <div
+    *ngIf="otherSolutions$ | async as otherSolutions"
+    class="level3__other-solutions"
+  >
+    Other choices:
+    <div class="level3__other-solutions__choices">
+      <button
+        mat-flat-button
+        color="accent"
+        type="button"
+        *ngIf="otherSolutions.floor as solution"
+        (click)="chooseSolution(solution)"
+      >
+        {{ solution.value }} €
+      </button>
+
+      <button
+        mat-flat-button
+        color="accent"
+        type="button"
+        *ngIf="otherSolutions.ceil as solution"
+        (click)="chooseSolution(solution)"
+      >
+        {{ solution.value }} €
+      </button>
+    </div>
+  </div>
+  <div *ngIf="foundSolution$ | async as solution" class="level3__solution">
+    Votre montant est composé des cartes suivantes:
+    <ul>
+      <li *ngFor="let card of solution.cards">{{ card }} €</li>
+    </ul>
+  </div>
+</div>

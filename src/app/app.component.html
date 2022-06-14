@@ -1,4 +1,8 @@
 <div class="app">
   <app-level1 [shopId]="5"></app-level1>
   <app-level2 [shopId]="5"></app-level2>
+  <app-level3 [shopId]="5" [formControl]="level3Control"></app-level3>
+  <button (click)="setLevel3()" mat-flat-button type="button" color="accent">
+    Change value level 3
+  </button>
 </div>
