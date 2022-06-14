@@ -11,9 +11,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDividerModule } from '@angular/material/divider';
+import { Level2Component } from './components/level2/level2.component';
 
 @NgModule({
-  declarations: [AppComponent, Level1Component],
+  declarations: [AppComponent, Level1Component, Level2Component],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

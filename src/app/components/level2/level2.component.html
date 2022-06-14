@@ -1,7 +1,15 @@
-<div class="level1">
-  <h1>Level 1</h1>
-  <div class="level1__control">
-    <mat-form-field appearance="fill" class="level1__control__input">
+<div class="level2">
+  <h1>Level 2</h1>
+  <div class="level2__control">
+    <button
+      mat-flat-button
+      color="accent"
+      type="button"
+      (click)="previousAmount()"
+    >
+      Montant précédent
+    </button>
+    <mat-form-field appearance="fill" class="level2__control__input">
       <mat-label>Montant désiré</mat-label>
       <input
         matInput
@@ -10,22 +18,27 @@
         [formControl]="amountControl"
       />
     </mat-form-field>
+    <button mat-flat-button color="accent" type="button" (click)="nextAmount()">
+      Montant suivant
+    </button>
+
     <button
       mat-flat-button
       color="primary"
       type="button"
       [disabled]="!amountControl.valid"
       (click)="validate()"
+      class="level2__control__validate"
     >
       VALIDER
     </button>
   </div>
   <div
     *ngIf="otherSolutions$ | async as otherSolutions"
-    class="level1__other-solutions"
+    class="level2__other-solutions"
   >
     Other choices:
-    <div class="level1__other-solutions__choices">
+    <div class="level2__other-solutions__choices">
       <button
         mat-flat-button
         color="accent"
@@ -47,7 +60,7 @@
       </button>
     </div>
   </div>
-  <div *ngIf="foundSolution$ | async as solution" class="level1__solution">
+  <div *ngIf="foundSolution$ | async as solution" class="level2__solution">
     Votre montant est composé des cartes suivantes:
     <ul>
       <li *ngFor="let card of solution.cards">{{ card }} €</li>

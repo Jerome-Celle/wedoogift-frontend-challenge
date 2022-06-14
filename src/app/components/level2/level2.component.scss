@@ -1,0 +1,39 @@
+.level2{
+  display: grid;
+  gap: 20px;
+
+  &__control{
+
+    display: grid;
+    grid-template-columns: 1fr 200px 1fr;
+    gap: 10px;
+    align-items: start;
+
+
+    &__input{
+      width: 200px;
+    }
+
+    &__validate{
+      grid-area: 2 / 2 / 3 / 3;
+    }
+  }
+
+  &__other-solutions{
+    display: grid;
+    gap: 10px;
+
+    &__choices{
+      display: grid;
+      grid-auto-flow: column;
+      gap: 10px;
+    }
+
+  }
+
+  &__solution{
+    display: grid;
+    gap: 5px;
+
+  }
+}
